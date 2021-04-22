@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.CartWidget{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.cartIcon{
+    max-width: 32px;
+    max-height: 32px
+}
