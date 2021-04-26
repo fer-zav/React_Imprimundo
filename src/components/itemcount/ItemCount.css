@@ -1,0 +1,48 @@
+.item-group{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin: 0rem 0.5rem 0.2rem 0rem;
+    max-height: 30px;
+}
+.stockStats{
+    max-width: 280px;
+    display: flex;
+    align-content: space-evenly;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+.stockField{
+    display: flex;
+    text-align: center;
+    max-height: 2rem;
+    max-width: 100px;
+    font-size: 1.1rem;
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+.input-group-prepend{
+    margin-right: -1px;
+}
+.input-group-append{
+    margin-left: -1px;
+}
+.btnControl{
+    min-width: 1.45rem;
+    min-height: 1.45rem;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 1);
+}
+.ctrlRem{
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    background-color: rgba(255, 0, 0, 0.8);
+}
+.ctrlAdd{
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: rgba(0, 255, 0, 0.8);
+}
+.deactivated{
+  cursor: not-allowed;
+}
