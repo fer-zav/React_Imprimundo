@@ -1,13 +1,10 @@
 import './CartWidget.css';
+import CartIcon from './img_208967.png';
 
-export const CartWidget = () => {
-    const cart= "https://cdn.onlinewebfonts.com/svg/img_208967.png";
-
-    return(
-        <div className='CartWidget'>
-            <ul>
-                <li><img className="cartIcon" src={cart} alt="cart" /></li>
-            </ul>
-        </div>
-    )
-}
+export const CartWidget = () => (
+    <div className='CartWidget'>
+        <ul>
+            <li><img className="cartIcon" src={CartIcon} alt="cart" /></li>
+        </ul>
+    </div>
+)
