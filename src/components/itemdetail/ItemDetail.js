@@ -1,15 +1,15 @@
 import './ItemDetail.css';
+import {ItemCount} from '../itemcount/ItemCount';
 
-export const ItemDetail = (props) => {
-    const item = props.item;
+export const ItemDetail = ({item}) => {
     return(
-        <div>
-            <span className="titleDetail">Nombre: {item.name}</span><br />
+        <div className="item-detail-container">
+            <div className="titleDetail">Nombre: {item.name}</div><br />
             <img src={item.img} alt={item.name} />
             <br />
             <p>Descripcion: {item.description}</p><br />
-            <span className="priceDetail">Precio: {item.price}</span><br />
-            <br />
+            <div className="priceDetail">Precio: {item.price}</div>
+            <ItemCount stock={item.stock} initial={item.initial} countId={item.countId} value="" />
         </div>
-    )
+    );
 }

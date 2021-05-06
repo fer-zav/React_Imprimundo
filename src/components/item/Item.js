@@ -1,16 +1,15 @@
 import './Item.css';
+import {Link} from 'react-router-dom';
 
-export const Item = (props) => {
-    const item = props.product;
-    return(
+
+export const Item = ({product}) =>(
+    <div className="item-container">
+        <p className="propsText">
+            Nombre: {product.name}<br />
+            Descripcion: {product.description}
+        </p>
+        <Link to={`/product/${product.id}`}>Ver mas...</Link>
         <div>
-            <div>
-                <p>
-                    Id: {props.id}
-                    Nombre: {item.name}
-                    Descripcion: {item.description}
-                </p>
-            </div>
         </div>
-    )
-}
+    </div>
+);

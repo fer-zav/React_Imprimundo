@@ -7,6 +7,7 @@
 
 .App {
   text-align: center;
+  min-height: calc(100vh - 32rem);
 }
 
 .App-header {
@@ -19,4 +20,9 @@
   font-size: calc(10px + 2vmin);
   font-family: 'Montserrat', sans-serif;
   color: #da5010;
+}
+
+a, a:visited{
+  color: #da5010;
+  text-decoration-line: none;
 }

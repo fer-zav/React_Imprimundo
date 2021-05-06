@@ -1,3 +1,22 @@
+# Readme-Self-edit
+
+Buenas, este proyecto intenta crear un sitio de eCommerce para un (no tan ficticio) micro-emprendimiento de impresion 3d.
+Las imagenes y texto utilizados son por el momento placeholder, pero pasarian a representar un estado mas "realista" para antes de finalizar el curso (con posibilidad de utilizarla a futuro ") )!
+
+## Descripcion actual (21/05/05)
+
+Al momentode escribir este texto, el proyecto "Imprimundo eCommerce en React" cuenta con una landing page con algo de texto placeholder, una pagina de productos sin imagenes, y un sitio de detalles para cada producto; distinto de lo requerido, no cuenta con categorias porque no estuvieron consideradas al momento de diagramar el proyecto.
+A futuro (cercano) el plan es agregar mas productos y descripciones menos genericas, con imagenes coherentes a lo que describe el producto.
+Adicionalmente, se tiene en consideracion ahondar en el tema del sitio en general (novedades "dinamicas", pagina de contacto; hacerla una web mas completa y coherente), cumpliendo ademas con los requerimientos del curso.
+
+## A notar
+
+Los estilos no son mi fuerte, pero con tiempo suficiente se puede hacer algo esteticamente coherente ")
+
+(texto original abajo)
+
+#
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

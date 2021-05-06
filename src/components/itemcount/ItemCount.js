@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
 import "./ItemCount.css";
+import React, {useState} from 'react';
 
 export const ItemCount = (props) => {
     const [stock, initial, countId] = [parseInt(props.stock), parseInt(props.initial), props.countId];
@@ -20,7 +20,7 @@ export const ItemCount = (props) => {
     }
 
     return(
-        <div>
+        <div className="item-count">
             <br />
             <div className="item-group">
                 <div className="input-group-prepend">
@@ -33,5 +33,5 @@ export const ItemCount = (props) => {
             </div>
             <p className="stockStats"><span>Stock: {stock}</span><br /><span>Orden minima: {initial}</span></p>
         </div>
-    )
+    );
 }

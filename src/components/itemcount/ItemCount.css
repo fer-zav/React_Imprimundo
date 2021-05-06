@@ -11,6 +11,7 @@
     align-content: space-evenly;
     justify-content: space-between;
     font-size: 0.8rem;
+    min-width: 200px;
 }
 .stockField{
     display: flex;
@@ -45,4 +46,9 @@
 }
 .deactivated{
   cursor: not-allowed;
+}
+.item-count{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
