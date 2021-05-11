@@ -1,7 +1,31 @@
 import './ItemDetail.css';
+import {useState} from 'react';
 import {ItemCount} from '../itemcount/ItemCount';
 
 export const ItemDetail = ({item}) => {
+    const [quantity, setQuantity] = useState(item.initial);
+    const [cart, setCart] = useState(true)
+
+    const onOptionChanged = (evt) => {
+        let mode = evt.target.className.split(" ")[1]
+        setQuantity(mode === "ctrlAdd" ? Number(quantity) + 1 : Number(quantity) - 1)
+        evt.target.parentElement.parentElement.getElementsByClassName("stockField")[0].value = quantity
+    }
+
+    const [btnTargetPlus, btnTargetMinus] = [document.getElementsByClassName("ctrlAdd")[0], document.getElementsByClassName("ctrlRem")[0]];
+    const removeItem = (e) => {
+        if ((quantity === Number(item.stock)) && Array.from(btnTargetPlus.classList).indexOf("deactivated") > -1 ){btnTargetPlus.classList.toggle("deactivated");}
+        if ((quantity < item.initial) && Array.from(btnTargetMinus.classList).indexOf("deactivated") < 0 ){btnTargetMinus.classList.toggle("deactivated");}
+        if (quantity >= item.initial){onOptionChanged(e);}
+        return;
+    }
+    const addItem = (e) => {
+        if ((quantity < item.initial) && Array.from(btnTargetMinus.classList).indexOf("deactivated") > -1 ){btnTargetMinus.classList.toggle("deactivated");}
+        if ((quantity === Number(item.stock)) && Array.from(btnTargetPlus.classList).indexOf("deactivated") < 0 ){btnTargetPlus.classList.toggle("deactivated");}
+        if (quantity < Number(item.stock)){onOptionChanged(e);}
+        return;
+    }
+
     return(
         <div className="item-detail-container">
             <div className="titleDetail">Nombre: {item.name}</div><br />
@@ -9,7 +33,9 @@ export const ItemDetail = ({item}) => {
             <br />
             <p>Descripcion: {item.description}</p><br />
             <div className="priceDetail">Precio: {item.price}</div>
-            <ItemCount stock={item.stock} initial={item.initial} countId={item.countId} value="" />
+            {cart ?
+            <button type="button" onClick={() => setCart(!cart)} value="Agregar al carrito">Agregar al carrito</button>
+            : <ItemCount item={item} add={addItem} rem={removeItem} changeFunc={onOptionChanged} quantity={quantity} key={item.id} value="" />}
         </div>
     );
 }
