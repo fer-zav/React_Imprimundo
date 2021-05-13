@@ -7,6 +7,7 @@ import {Novedades} from './pages/Novedades';
 import {ItemListContainer} from './components/itemlistcontainer/ItemListContainer';
 import {ItemDetailContainer} from './components/itemdetailcontainer/ItemDetailContainer';
 import {Footer} from './components/footer/Footer';
+import {Cart} from './components/cart/Cart'
 
 function App() {
 
@@ -17,8 +18,8 @@ function App() {
           <p><Link exact to="/">Imprimundo eShop</Link></p>
           <NavBar />
           <Switch>
-            <Route exact path="/">
-              <Landing />
+          <Route path="/carrito">
+              <Cart />
             </Route>
             <Route path="/products">
               <ItemListContainer />
@@ -28,6 +29,9 @@ function App() {
             </Route>
             <Route path="/novedades">
               <Novedades />
+            </Route>
+            <Route path="/"> {/* si esta al fondo, NO necesita exact */}
+              <Landing />
             </Route>
           </Switch>
           <Footer />
