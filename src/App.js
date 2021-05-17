@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <header className="App-header">
-          <p><Link exact to="/">Imprimundo eShop</Link></p>
+          <p><Link to="/">Imprimundo eShop</Link></p>
           <NavBar />
           <Switch>
           <Route path="/carrito">

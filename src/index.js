@@ -6,7 +6,7 @@ import {CartProvider} from '../src/context/cartContext'
 
 ReactDOM.render(
   <React.StrictMode>
-    <CartProvider value={[]}>
+    <CartProvider>
       <App />
     </CartProvider>
   </React.StrictMode>,

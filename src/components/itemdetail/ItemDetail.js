@@ -1,10 +1,11 @@
 import './ItemDetail.css';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {ItemCount} from '../itemcount/ItemCount';
-import { CartProvider} from '../../context/cartContext';
+import {CartContext} from '../../context/cartContext';
 
 export const ItemDetail = ({item}) => {
     const [quantity, setQuantity] = useState(item.initial);
+    const {cart} = useContext(CartContext); // eslint-disable-line no-unused-vars
 
     const onOptionChanged = (evt) => {
         let mode = evt.target.className.split(" ")[1]
@@ -33,9 +34,9 @@ export const ItemDetail = ({item}) => {
             <br />
             <p>Descripcion: {item.description}</p><br />
             <div className="priceDetail">Precio: {item.price}</div>
-            <CartProvider>
-                <ItemCount item={item} add={addItem} rem={removeItem} changeFunc={onOptionChanged} quantity={quantity} key={item.id} value="" />
-            </CartProvider>
+            <>
+                <ItemCount key={item.id} item={item} add={addItem} rem={removeItem} changeFunc={onOptionChanged} quantity={quantity} value="" />
+            </>
         </div>
     );
 }

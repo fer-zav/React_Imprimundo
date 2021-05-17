@@ -1,11 +1,12 @@
 import "./ItemCount.css";
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
-import { CartProvider } from "../../context/cartContext";
+import {CartContext} from "../../context/cartContext";
 
 export const ItemCount = ({item, add, rem, changeFunc, quantity, key, onAdd}) => {
     const [stock, initial] = [parseInt(item.stock), parseInt(item.initial)];
-    const [enableCart, setEnableCart] = useState(false)
+    const [enableCart, setEnableCart] = useState(false);
+    const cartContent = useContext(CartContext);
 
     return(
         <div className="item-count">
@@ -21,13 +22,9 @@ export const ItemCount = ({item, add, rem, changeFunc, quantity, key, onAdd}) =>
             </div>
             <p className="stockStats"><span>Stock: {stock}</span><br /><span>Orden minima: {initial}</span></p>
             <br />
-            {enableCart ?
-            <Link to='/carrito' >Ver el carrito</Link>
-            : <CartProvider>
-                {/* no funciona, explota... */}
-                <button type="button" onClick={() => {CartProvider.addItem(item, quantity); setEnableCart(!enableCart)}} value="Agregar al carrito">Agregar al carrito</button>
-            </CartProvider>
-            }
+            <>
+                {enableCart ? <Link to='/carrito' >Ver el carrito</Link> : <button type="button" onClick={(e) => {e.preventDefault(); setEnableCart(!enableCart); cartContent.addItem(item.id, item.name, item.price, item.img, quantity)}} value="Agregar al carrito">Agregar al carrito</button>}
+            </>
         </div>
     );
 }

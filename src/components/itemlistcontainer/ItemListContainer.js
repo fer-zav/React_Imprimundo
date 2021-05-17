@@ -11,7 +11,7 @@ export const ItemListContainer = () => {
         <div className='ItemListContainer'>
             {prodsAttrs.map(prod => {
                 return(
-                    <div className="countDiv">
+                    <div className="countDiv" key={prod.item}>
                         <ItemList item={prod.item} key={prod.item} />
                     </div>
                 )})}

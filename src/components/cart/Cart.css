@@ -1,0 +1,42 @@
+.iconRemove{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.imgItemCart{
+    max-width: 10rem;
+}
+
+.productContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    max-width: 21rem;
+    margin-left: calc(50% - 10rem);
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 16px;
+}
+
+.dataContainer{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.keepShopping{
+    margin-top: 3rem;
+}
+
+.itemDescript{
+    text-align: left;
+    margin-left: 1rem;
+    align-self: center;
+}
+
+.totalPrice{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-left: 30rem;
+}
