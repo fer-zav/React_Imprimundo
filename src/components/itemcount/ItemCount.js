@@ -1,12 +1,15 @@
 import "./ItemCount.css";
 import {useState, useContext} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import {CartContext} from "../../context/cartContext";
 
 export const ItemCount = ({item, add, rem, changeFunc, quantity, key, onAdd}) => {
+    const params = useParams();
     const [stock, initial] = [parseInt(item.stock), parseInt(item.initial)];
     const [enableCart, setEnableCart] = useState(false);
-    const cartContent = useContext(CartContext);
+    const {cart} = useContext(CartContext); // eslint-disable-line no-unused-vars
+    const cartFuncs = useContext(CartContext);
+    const itemId = params.productId;
 
     return(
         <div className="item-count">
@@ -20,10 +23,10 @@ export const ItemCount = ({item, add, rem, changeFunc, quantity, key, onAdd}) =>
                     <button className="btnControl ctrlAdd" type="button" onClick={add}>+</button>
                 </div>
             </div>
-            <p className="stockStats"><span>Stock: {stock}</span><br /><span>Orden minima: {initial}</span></p>
+            <p className="stockStats"><span>Stock: {cartFuncs.isInCart(itemId) ? Number(stock) - Number(cartFuncs.getItem(itemId).quantity) : stock}</span><br /><span>Orden minima: {initial}</span></p>
             <br />
             <>
-                {enableCart ? <Link to='/carrito' >Ver el carrito</Link> : <button type="button" onClick={(e) => {e.preventDefault(); setEnableCart(!enableCart); cartContent.addItem(item.id, item.name, item.price, item.img, quantity)}} value="Agregar al carrito">Agregar al carrito</button>}
+                {enableCart ? <Link to='/carrito' >Ver el carrito</Link> : <button type="button" onClick={(e) => {e.preventDefault(); setEnableCart(!enableCart); cartFuncs.addItem(item.id, item.name, item.price, item.img, quantity)}} value="Agregar al carrito">Agregar al carrito</button>}
             </>
         </div>
     );

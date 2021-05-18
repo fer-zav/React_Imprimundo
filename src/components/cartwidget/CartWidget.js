@@ -10,12 +10,20 @@ export const CartWidget = () => {
     const cartFuncs = useContext(CartContext);
 
     return(
-        <div className='CartWidget'>
-            <Link to="/carrito" className="link">
-                <span className="cartQuantity">({cart.length})</span>
-                <img className="cartIcon" src={CartIcon} alt="cart" />
-            </Link>
-            {cart.length > 0 ? <a href="/" onClick={(e) => {e.preventDefault(); console.log(cart); return cartFuncs.clean()}}>vaciar carrito?</a> : <div></div>}
-        </div>
+        <>
+            <div className='CartWidget'>
+                {
+                    cart.length > 0
+                    ? <Link to="/carrito" className="link">
+                        <span className="cartQuantity">({cart.map((item) => {return Number(item.quantity)}).reduce((a, b) => {return a + b})})</span>
+                    </Link>
+                    : <></>
+                }
+                <Link to="/carrito" className="link">
+                    <img className="cartIcon" src={CartIcon} alt="cart" />
+                </Link>
+            {cart.length > 0 ? <a href="/" title="vaciar carrito?" onClick={(e) => {e.preventDefault(); console.log(cart); return cartFuncs.clean()}}>❌</a> : <div></div>}
+            </div>
+        </>
     );
 }

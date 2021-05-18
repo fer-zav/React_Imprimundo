@@ -1,6 +1,9 @@
 .Footer{
-    min-height: calc(100vh - 39rem);
     display: flex;
-    align-items: flex-end;
     justify-content: center;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    position: fixed;
+    padding-bottom: 10px;
 }
