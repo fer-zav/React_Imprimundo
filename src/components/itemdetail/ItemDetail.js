@@ -30,9 +30,9 @@ export const ItemDetail = ({item}) => {
     return(
         <div className="item-detail-container">
             <div className="titleDetail">Nombre: {item.name}</div><br />
-            <img src={item.img} alt={item.name} />
+            <img src={item.imageUrl} alt={item.name} className="productImg" />
             <br />
-            <p>Descripcion: {item.description}</p><br />
+            <p>Resumen del Item: {item.description}</p><br />
             <div className="priceDetail">Precio: {item.price}</div>
             <>
                 <ItemCount key={item.id} item={item} add={addItem} rem={removeItem} changeFunc={onOptionChanged} quantity={quantity} value="" />

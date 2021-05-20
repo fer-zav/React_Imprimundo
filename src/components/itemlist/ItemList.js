@@ -1,28 +1,39 @@
 import './ItemList.css';
 import {Item} from '../item/Item';
 import React, {useState, useEffect} from "react";
+import {getFireStore} from '../../firebase';
 
-export const ItemList = (props) => {
-    const [products, setProducts] = useState([]);
-    const datas = [
-        {id: "imprFrag", name: "Impresion Fragil", description: "Una impresion 3d muy fragil..."},
-        {id: "imprFuert", name: "Impresion Fuerte", description: "Impresion 3d demasiado dura, devolver"},
-        {id: "imprJusta", name: "Impresion Justa", description: "Ah!, La impresion que estaba buscando!"}
-    ];
-    useEffect(() =>{
-        const getProducts = (async () => { // eslint-disable-line no-unused-vars
-            await new Promise(() => {
-                setTimeout(()=>{setProducts(datas);}, 100);
-            });
-        })()
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+export const ItemList = () => {
+    const [items, setItems] = useState([])
+    useEffect(() => {
+        const slugify = (s) => {
+            return s.trim().toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-')
+        }
+        const db = getFireStore();
+        const itemCollection = db.collection("items");
+        itemCollection.get()
+        .then((querySnapshot) => {
+            if (querySnapshot.size === 0){
+                console.log("No results!");
+            }
+            setItems(querySnapshot.docs.map((doc) => {
+                return {...doc.data(), id: slugify(doc.data().name)};
+            }))
+        })
+        .catch((err) => {
+            console.error(`Firestore error: ${err}`);
+        })
+    }, [])
 
     return(
-        <div>
-            {products.map(product => {
-                return product.id === props.item ? <Item key={product.id} product={product} /> : null
+        <>
+            {
+                items.map((item) => {
+                    return (
+                        <Item key={item.id} item={item} />
+                    )
+                })
             }
-            )}
-        </div>
+        </>
     );
 }

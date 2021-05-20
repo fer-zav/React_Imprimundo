@@ -3,6 +3,29 @@ import {createContext, useState} from 'react'
 export const CartContext = createContext([]);
 
 export const CartProvider = ({defaultValue=[], children}) => {
+
+    // const [items, setItems] = useState([])
+    // useEffect(() => {
+    //     const db = getFireStore();
+    //     const itemCollection = db.collection("items");
+    //     itemCollection.get()
+    //     .then((querySnapshot) => {
+    //         if (querySnapshot.size === 0){
+    //             console.log("No results!");
+    //         }
+    //         setItems(querySnapshot.docs.map((doc) => {
+    //             return {...doc.data(), id: slugify(doc.data().name)};
+    //         }))
+    //     })
+    //     .catch((err) => {
+    //         console.error(`Firestore error: ${err}`);
+    //     })
+    // }, [])
+
+    // console.log("test firebase: ");
+    // console.log(items);
+
+
     const [cart, setCart] = useState(defaultValue);
     const [quantity, setQuantity] = useState(0);
 
@@ -14,13 +37,13 @@ export const CartProvider = ({defaultValue=[], children}) => {
         return id === undefined ? undefined : getItem(id) !== undefined
     }
 
-    const addItem = (id, name, price, img, quantity) => {
-        if (isInCart(id)){
+    const addItem = (item, quantity) => {
+        if (isInCart(item.id)){
             console.log("Repeated item, not adding...");
         } else if (quantity < 1) {
             console.log("Can't add 0 products...");
             } else {
-                setCart([...cart, {id: id, name: name, price: price, img: img, quantity: quantity}]);
+                setCart([...cart, {...item, quantity: quantity}]);
                 setQuantity(quantity)
             }
         return 0;

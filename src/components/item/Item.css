@@ -2,8 +2,21 @@
     text-align: left;
     margin-top: 10px;
 }
+
 .item-container{
     margin: 10px auto;
-    text-align: initial;
-    line-height: 1.6rem;
+    max-width: 20.5rem;
+}
+
+.productImg{
+    max-width: 320px;
+    border-radius: 20px;
+    box-shadow: -7px -7px rgba(128,128,128,0.2), 7px 7px rgba(128,128,128,0.2), -7px 7px rgba(128,128,128,0.2), 7px -7px rgba(128,128,128,0.2);
+    margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 670px) {
+    .productImg{
+        max-height: 320px;
+    }
 }

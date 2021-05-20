@@ -26,7 +26,7 @@ export const ItemCount = ({item, add, rem, changeFunc, quantity, key, onAdd}) =>
             <p className="stockStats"><span>Stock: {cartFuncs.isInCart(itemId) ? Number(stock) - Number(cartFuncs.getItem(itemId).quantity) : stock}</span><br /><span>Orden minima: {initial}</span></p>
             <br />
             <>
-                {enableCart ? <Link to='/carrito' >Ver el carrito</Link> : <button type="button" onClick={(e) => {e.preventDefault(); setEnableCart(!enableCart); cartFuncs.addItem(item.id, item.name, item.price, item.img, quantity)}} value="Agregar al carrito">Agregar al carrito</button>}
+                {enableCart ? <Link to='/carrito' >Ver el carrito</Link> : <button type="button" onClick={(e) => {e.preventDefault(); setEnableCart(!enableCart); cartFuncs.addItem(item, quantity)}} value="Agregar al carrito">Agregar al carrito</button>}
             </>
         </div>
     );
