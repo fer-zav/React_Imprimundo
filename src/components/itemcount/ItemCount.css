@@ -29,10 +29,10 @@
 }
 .btnControl{
     min-width: 1.45rem;
-    min-height: 1.45rem;
     border: 1px solid rgba(0, 0, 0, 0.8);
     cursor: pointer;
     background-color: rgba(255, 255, 255, 1);
+    min-height: 1.5rem;
 }
 .ctrlRem{
     border-top-left-radius: 12px;

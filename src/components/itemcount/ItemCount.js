@@ -18,12 +18,12 @@ export const ItemCount = ({item, add, rem, changeFunc, quantity, key, onAdd}) =>
                 <div className="input-group-prepend">
                     <button className="btnControl ctrlRem" type="button" onClick={rem}>-</button>
                 </div>
-                <input key={key} className="stockField" value={quantity} onChange={(e) => {changeFunc(e)}} />
+                <input key={key} className="stockField" value={stock - quantity >= 1 ? quantity : stock} onChange={(e) => {changeFunc(e)}} />
                 <div className="input-group-append">
                     <button className="btnControl ctrlAdd" type="button" onClick={add}>+</button>
                 </div>
             </div>
-            <p className="stockStats"><span>Stock: {cartFuncs.isInCart(itemId) ? Number(stock) - Number(cartFuncs.getItem(itemId).quantity) : stock}</span><br /><span>Orden minima: {initial}</span></p>
+            <p className="stockStats"><span>Stock: {cartFuncs.isInCart(itemId) ? stock - cartFuncs.getItem(itemId).quantity : stock - quantity}</span><br /><span>Orden minima: {stock >= 1 ? initial : stock}</span></p>
             <br />
             <>
                 {enableCart ? <Link to='/carrito' >Ver el carrito</Link> : <button type="button" onClick={(e) => {e.preventDefault(); setEnableCart(!enableCart); cartFuncs.addItem(item, quantity)}} value="Agregar al carrito">Agregar al carrito</button>}

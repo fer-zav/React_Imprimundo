@@ -1,6 +1,7 @@
 .iconRemove{
     display: flex;
     justify-content: flex-end;
+    margin-left: 100%;
 }
 
 .imgItemCart{
@@ -35,9 +36,49 @@
     align-self: center;
 }
 
+.productTitle{
+    color: #c0c0c0;
+    font-size: 1.4rem;
+    font-weight: bolder;
+}
+
 .totalPrice{
     display: flex;
     align-content: center;
-    justify-content: center;
-    padding-left: 30rem;
+    justify-content: space-between;
+    max-width: 70%;
+    min-width: 10%;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 0 0.5rem;
+}
+
+@media only screen and (min-width: 500px) {
+    .totalPrice{
+        max-width: 60%;
+        min-width: 10%;
+    }
+}
+
+@media only screen and (min-width: 670px) {
+    .totalPrice{
+        max-width: 60%;
+        min-width: 10%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .totalPrice{
+        max-width: 30%;
+        min-width: 10%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .totalPrice{
+        max-width: 20%;
+        min-width: 10%;
+    }
 }
