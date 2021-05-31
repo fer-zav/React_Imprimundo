@@ -19,10 +19,12 @@ export const CartWidget = () => {
                     </Link>
                     : <></>
                 }
+                &nbsp;
                 <Link to="/carrito" className="link">
                     <img className="cartIcon" src={CartIcon} alt="cart" />
                 </Link>
-            {cart.length > 0 ? <a href="/" title="vaciar carrito?" onClick={(e) => {e.preventDefault(); console.log(cart); return cartFuncs.clean()}}>❌</a> : <div></div>}
+                &nbsp;
+                {cart.length > 0 ? <><a href="/" title="vaciar carrito?" onClick={(e) => {e.preventDefault(); console.log(cart); return cartFuncs.clean()}}>❌</a></> : <div></div>}
             </div>
         </>
     );

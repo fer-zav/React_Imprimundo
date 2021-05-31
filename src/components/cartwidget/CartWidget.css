@@ -1,14 +1,18 @@
 .CartWidget{
     display: flex;
-    align-content: center;
+    /* align-content: center; */
+    align-content: space-evenly;
     justify-content: center;
     margin-right: 1rem;
     flex-direction: row;
+    max-width: 4rem;
+    align-items: baseline;
 }
 
 .cartIcon{
-    max-width: 32px;
-    max-height: 32px
+    max-width: 28px;
+    max-height: 28px;
+    filter: invert();
 }
 
 .cartQuantity{

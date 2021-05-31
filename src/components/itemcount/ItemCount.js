@@ -3,7 +3,7 @@ import {useState, useContext} from 'react';
 import {Link, useParams} from 'react-router-dom';
 import {CartContext} from "../../context/cartContext";
 
-export const ItemCount = ({item, add, rem, changeFunc, quantity, key, onAdd}) => {
+export const ItemCount = ({item, add, rem, changeFunc, quantity, onAdd}) => {
     const params = useParams();
     const [stock, initial] = [parseInt(item.stock), parseInt(item.initial)];
     const [enableCart, setEnableCart] = useState(false);
@@ -18,7 +18,7 @@ export const ItemCount = ({item, add, rem, changeFunc, quantity, key, onAdd}) =>
                 <div className="input-group-prepend">
                     <button className="btnControl ctrlRem" type="button" onClick={rem}>-</button>
                 </div>
-                <input key={key} className="stockField" value={stock - quantity >= 1 ? quantity : stock} onChange={(e) => {changeFunc(e)}} />
+                <input key={new Date().valueOf()} className="stockField" value={stock - quantity >= 1 ? quantity : stock} onChange={(e) => {changeFunc(e)}} />
                 <div className="input-group-append">
                     <button className="btnControl ctrlAdd" type="button" onClick={add}>+</button>
                 </div>
