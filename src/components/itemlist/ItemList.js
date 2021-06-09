@@ -1,14 +1,14 @@
 import './ItemList.css';
-import {Item} from '../item/Item';
-import React, {useState, useEffect} from "react";
 import {getFireStore} from '../../firebase';
+import {Item} from '../item/Item';
+import {useState, useEffect} from "react";
 
 export const ItemList = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
         const slugify = (s) => {
-            return s.trim().toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-')
+            return s.trim().toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-');
         }
         const db = getFireStore();
         const itemCollection = db.collection("items");
@@ -19,7 +19,7 @@ export const ItemList = () => {
             }
             setItems(querySnapshot.docs.map((doc) => {
                 return {...doc.data(), id: slugify(doc.data().name), docId: doc.id};
-            }))
+            }));
         })
         .catch((err) => {
             console.error(`Firestore error: ${err}`);
@@ -30,7 +30,7 @@ export const ItemList = () => {
         <>
             {
                 items.map((item) => {
-                    return (
+                    return(
                         <Item key={item.id} item={item} />
                 )})
             }

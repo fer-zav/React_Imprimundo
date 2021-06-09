@@ -1,6 +1,5 @@
 .CartWidget{
     display: flex;
-    /* align-content: center; */
     align-content: space-evenly;
     justify-content: center;
     margin-right: 1rem;

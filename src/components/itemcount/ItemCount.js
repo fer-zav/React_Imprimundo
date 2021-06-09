@@ -1,7 +1,7 @@
 import "./ItemCount.css";
-import {useState, useContext} from 'react';
-import {Link, useParams} from 'react-router-dom';
 import {CartContext} from "../../context/cartContext";
+import {Link, useParams} from 'react-router-dom';
+import {useState, useContext} from 'react';
 
 export const ItemCount = ({item, add, rem, changeFunc, quantity, onAdd}) => {
     const params = useParams();
@@ -25,9 +25,11 @@ export const ItemCount = ({item, add, rem, changeFunc, quantity, onAdd}) => {
             </div>
             <p className="stockStats"><span>Stock: {cartFuncs.isInCart(itemId) ? stock - cartFuncs.getItem(itemId).quantity : stock - quantity}</span><br /><span>Orden minima: {stock >= 1 ? initial : stock}</span></p>
             <br />
-            <>
-                {enableCart ? <Link to='/carrito' >Ver el carrito</Link> : <button type="button" onClick={(e) => {e.preventDefault(); setEnableCart(!enableCart); cartFuncs.addItem(item, quantity)}} value="Agregar al carrito">Agregar al carrito</button>}
-            </>
+            {
+                enableCart
+                ? <Link to='/cart' >Ver el carrito</Link>
+                : <button type="button" onClick={(e) => {e.preventDefault(); setEnableCart(!enableCart); cartFuncs.addItem(item, quantity)}} value="Agregar al carrito">Agregar al carrito</button>
+            }
         </div>
     );
 }

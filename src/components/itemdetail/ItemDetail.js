@@ -1,15 +1,15 @@
 import './ItemDetail.css';
-import {useState, useContext} from 'react';
-import {ItemCount} from '../itemcount/ItemCount';
 import {CartContext} from '../../context/cartContext';
+import {ItemCount} from '../itemcount/ItemCount';
+import {useState, useContext} from 'react';
 
 export const ItemDetail = ({item}) => {
     const [quantity, setQuantity] = useState(item.initial);
     const {cart} = useContext(CartContext); // eslint-disable-line no-unused-vars
 
     const onOptionChanged = (evt) => {
-        let mode = evt.target.className.split(" ")[1]
-        setQuantity(mode === "ctrlAdd" ? Number(quantity) + 1 : Number(quantity) - 1)
+        let mode = evt.target.className.split(" ")[1];
+        setQuantity(mode === "ctrlAdd" ? Number(quantity) + 1 : Number(quantity) - 1);
         evt.target.parentElement.parentElement.getElementsByClassName("stockField")[0].value = quantity;
     }
 

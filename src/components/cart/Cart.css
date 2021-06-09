@@ -1,7 +1,6 @@
 .iconRemove{
     display: flex;
     justify-content: flex-end;
-    /* margin-left: 100%; */
     margin-top: 50%;
 }
 
@@ -47,7 +46,7 @@
     display: flex;
     align-content: center;
     justify-content: space-between;
-    max-width: 70%;
+    max-width: 80%;
     min-width: 10%;
     align-items: center;
     margin: 0 auto;
@@ -56,28 +55,36 @@
     padding: 0 0.5rem;
 }
 
-@media only screen and (min-width: 500px) {
+.endPurchase a{
+    font-size: larger;
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+@media only screen and (min-width: 500px){
     .totalPrice{
         max-width: 60%;
         min-width: 10%;
     }
 }
 
-@media only screen and (min-width: 670px) {
+@media only screen and (min-width: 670px){
     .totalPrice{
         max-width: 60%;
         min-width: 10%;
     }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px){
     .totalPrice{
         max-width: 30%;
         min-width: 10%;
     }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px){
     .totalPrice{
         max-width: 20%;
         min-width: 10%;

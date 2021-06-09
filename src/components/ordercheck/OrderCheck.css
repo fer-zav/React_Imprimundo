@@ -1,0 +1,105 @@
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 100%;
+    justify-content: center;
+}
+
+.productItem{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    min-width: 15%;
+    align-items: flex-start;
+    margin: 0.75rem 3rem;
+}
+
+.OrderCheck{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#orderCode{
+    max-width: 5.5rem;
+}
+
+.orderContainer, .buyerList, .orderList, .productList{
+    margin: 0.75rem 0;
+}
+
+.buyerList, .orderList{
+    min-width: 15vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 2rem 1rem 0;
+}
+
+.listHeaders{
+    text-align: left;
+}
+
+.listValues{
+    text-align: right;
+}
+
+.imgPreview{
+    max-height: 240px;
+}
+
+.orderDetails, .searchContainer{
+    display: flex;
+    margin-left: 3rem;
+}
+
+.orderDetails{
+    flex-direction: column;
+    width: 20rem;
+}
+
+.orderList{
+    text-align: right;
+}
+
+.orderContainer li{
+    list-style-type: none;
+    text-align: center;
+}
+
+.loadingMessage{
+    margin: 3rem;
+}
+
+.loadingCartIcon{
+    max-width: 28px;
+    max-height: 28px;
+    filter: invert();
+}
+
+.orderList > p{
+    display: flex;
+    width: calc(100% + 1rem);
+    margin: 0 5rem;
+}
+
+.orderError{
+    margin: 3rem;
+    font-size: x-large;
+    color: rgba(220, 20, 20, 0.8);
+}
+
+@media (prefers-reduced-motion: no-preference){
+    .loadingCartIcon{
+        animation: loading-cart-spin infinite 1.5s linear;
+    }
+}
+
+@keyframes loading-cart-spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

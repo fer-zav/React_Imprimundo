@@ -1,0 +1,14 @@
+.landingTitle{
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.landingEmphasis{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #da5010;
+}
+
+.explainText{
+    margin-bottom: 1rem;
+}

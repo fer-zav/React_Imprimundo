@@ -5,6 +5,7 @@
     margin: 0rem 0.5rem 0.2rem 0rem;
     max-height: 30px;
 }
+
 .stockStats{
     max-width: 280px;
     display: flex;
@@ -13,6 +14,7 @@
     font-size: 0.8rem;
     min-width: 200px;
 }
+
 .stockField{
     display: flex;
     text-align: center;
@@ -21,12 +23,15 @@
     font-size: 1.1rem;
     border: 1px solid rgba(0, 0, 0, 1);
 }
+
 .input-group-prepend{
     margin-right: -1px;
 }
+
 .input-group-append{
     margin-left: -1px;
 }
+
 .btnControl{
     min-width: 1.45rem;
     border: 1px solid rgba(0, 0, 0, 0.8);
@@ -34,19 +39,23 @@
     background-color: rgba(255, 255, 255, 1);
     min-height: 1.5rem;
 }
+
 .ctrlRem{
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
     background-color: rgba(255, 0, 0, 0.8);
 }
+
 .ctrlAdd{
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     background-color: rgba(0, 255, 0, 0.8);
 }
+
 .deactivated{
   cursor: not-allowed;
 }
+
 .item-count{
     display: flex;
     flex-direction: column;
